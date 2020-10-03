@@ -11,4 +11,6 @@ def all_sundays(year):
           
 for s in all_sundays(2020):
    print(s)
+
+print("HAPPY HANUKA")
    
