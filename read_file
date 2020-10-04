@@ -1,0 +1,23 @@
+def read_dataset():
+    dir_path = r'G:\IIITD\Information Retrieval\Assignment\Assignment1\20_newsgroups'
+    #Read the directory
+    directory = os.listdir(dir_path)
+    #Store the content of files in list of list after removing meta data
+    file_data = {}
+    #print(directory)
+    for sub_dir in directory:
+        sub_dir_path = dir_path+'/'+sub_dir+"/"
+        #Read the content of sub directories
+        documents = os.listdir(sub_dir_path)
+
+        for files in documents:
+            file_path = sub_dir_path + files
+            f = open(file_path,"r")
+            file_content = f.read()
+            content_list = file_content.split("\n\n",1)
+            #Delete the meta data
+            del content_list[0]
+            file_data[files] = content_list
+    return(file_data)
+file_data  = read_dataset()
+print(file_data.keys())
